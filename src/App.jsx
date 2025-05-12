@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import DropBox from "./pages/DropBox";
+import DraggableImage from "./pages/DraggableImages";
 import {
   DndContext,
-  useDraggable,
-  useDroppable,
   DragOverlay,
 } from "@dnd-kit/core";
 
@@ -67,49 +67,6 @@ export default function App() {
           ) : null}
         </DragOverlay>
       </DndContext>
-    </div>
-  );
-}
-
-function DraggableImage({ image }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-    id: image.id,
-    data: image,
-  });
-
-  const style = {
-    transform: transform
-      ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
-      : undefined,
-    opacity: isDragging ? 0.3 : 1,
-  };
-
-  return (
-    <img
-      ref={setNodeRef}
-      {...listeners}
-      {...attributes}
-      src={image.src}
-      alt="draggable"
-      className="w-28 h-28 border rounded cursor-grab"
-      style={style}
-    />
-  );
-}
-
-function DropBox({ id, image }) {
-  const { setNodeRef, isOver } = useDroppable({ id });
-
-  return (
-    <div
-      ref={setNodeRef}
-      className={`w-28 h-28 border-2 rounded flex items-center justify-center ${
-        isOver ? "border-blue-500" : "border-gray-300"
-      }`}
-    >
-      {image ? (
-        <img src={image.src} alt="puzzle-piece" className="w-full h-full object-cover rounded" />
-      ) : null}
     </div>
   );
 }
