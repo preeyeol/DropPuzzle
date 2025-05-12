@@ -21,7 +21,7 @@ const DraggableImage=({ image }) =>{
       {...attributes}
       src={image.src}
       alt="draggable"
-      className="w-28 h-28 border rounded cursor-grab"
+      className="w-20 h-20 border rounded cursor-grab"
       style={style}
     />
   );

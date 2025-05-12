@@ -8,7 +8,7 @@ const allImages = Array.from({ length: 50 }, (_, i) => ({
   src: `https://picsum.photos/seed/${i + 1}/100`, // placeholder images
 }));
 
-const MAX_VISIBLE_OPTIONS = 8;
+const MAX_VISIBLE_OPTIONS = 10;
 const GRID_SIZE = 25;
 
 export default function App() {
@@ -48,14 +48,14 @@ export default function App() {
   }
 
   return (
-    <div className="p-4 ">
+    <div className="p-4 overflow-hidden">
       <h1 className="font-bold text-2xl mb-10 text-center">
         Q4. Put the room into correct position based on environment and
         situation
       </h1>
         <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="flex justify-center items-center">
-          <div className="grid grid-cols-5 gap-4 w-[40rem] justify-center items-center">
+          <div className="grid grid-cols-5 gap-2 w-[30rem] justify-center items-center">
             {gridImages.map((img, index) => (
               <DropBox key={index} id={`dropbox-${index}`} image={img} />
             ))}
@@ -76,7 +76,7 @@ export default function App() {
               <img
                 src={activeDrag.src}
                 alt="drag-preview"
-                className="w-28 h-28 rounded border"
+                className="w-20 h-20 rounded border"
               />
             ) : null}
           </DragOverlay>

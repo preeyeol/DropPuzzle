@@ -7,7 +7,7 @@ const DropBox=({ id, image })=> {
   return (
     <div
       ref={setNodeRef}
-      className={`w-28 h-28 border-2 rounded flex items-center justify-center ${
+      className={`w-20 h-20 border-2 rounded flex items-center justify-center ${
         isOver ? "border-blue-500" : "border-gray-300"
       }`}
     >
